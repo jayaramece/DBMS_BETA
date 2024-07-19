@@ -1,0 +1,20 @@
+/* src/app/app.component.css */
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.toggle-sidebar-btn {
+  cursor: pointer;
+}
+
+.toggle-sidebar {
+  background-color: #f0f0f0;
+  /* Add other styles to represent the toggled state */
+}

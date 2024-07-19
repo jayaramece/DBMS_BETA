@@ -1,0 +1,60 @@
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Roles</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item">Role</li>
+          <li class="breadcrumb-item active">Add</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="card-title">{{ isEdit ? 'EDIT' : 'ADD' }} Role</h5>                
+                <button type="reset" class="btn btn-secondary" (click)="backTo()">Back</button>
+              </div>
+
+
+              <form (submit)="handleSubmit()">
+                <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-3 col-form-label">Role</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="roleData.role" name="role" placeholder="Role">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Role Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" [(ngModel)]="roleData.role_name" name="role_name" placeholder="Role Name">
+                    </div>
+                </div>
+                <div class="row mb-3" *ngIf="isEdit">
+                  <label for="inputEmail3" class="col-sm-3 col-form-label">Status</label>
+                  <div class="col-sm-9">
+                    <select class="form-select" aria-label="State" [(ngModel)]="roleData.role_status" name="status">
+                      <option value="1">Active</option>
+                      <option value="0">Inactive</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">{{ isEdit ? 'Update' : 'Submit' }}</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->

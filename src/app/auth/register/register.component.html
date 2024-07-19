@@ -1,0 +1,90 @@
+<main>
+  <div class="container">
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <app-inline-header></app-inline-header>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="pt-4 pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                  <p class="text-center small">Enter your personal details to create account</p>
+                </div>
+
+                <form class="row g-3 needs-validation" [formGroup]="registerForm" (ngSubmit)="register()">
+
+                  <div class="col-12">
+                    <input type="text" formControlName="fname" name="fname" placeholder="Full Name" class="form-control" required>
+                    <div *ngIf="registerForm.controls['fname'].invalid && registerForm.controls['fname'].touched">
+                      <small *ngIf="registerForm.controls['fname'].errors?.['required']" [ngStyle]="{ 'color': 'red' }">Full Name is required.</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <input type="email" formControlName="email" name="email" placeholder="Email" class="form-control" id="yourEmail" required>
+                    <div *ngIf="registerForm.controls['email'].invalid && registerForm.controls['email'].touched">
+                      <small *ngIf="registerForm.controls['email'].errors?.['required']" [ngStyle]="{ 'color': 'red' }">Email is required.</small>
+                      <small *ngIf="registerForm.controls['email'].errors?.['email']" [ngStyle]="{ 'color': 'red' }">Email must be valid.</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <input type="text" formControlName="username" placeholder="User Name" name="username" class="form-control" id="yourUsername" required>
+                    <div *ngIf="registerForm.controls['username'].invalid && registerForm.controls['username'].touched">
+                      <small *ngIf="registerForm.controls['username'].errors?.['required']" [ngStyle]="{ 'color': 'red' }">Username is required.</small>
+                      <small *ngIf="registerForm.controls['username'].errors?.['minlength']" [ngStyle]="{ 'color': 'red' }">Username must be at least 3 characters long.</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <select formControlName="role" name="role" required class="form-control">
+                      <option value="" disabled selected>Select Role</option>
+                      <option value="1">Super Admin</option>
+                      <option value="2">Admin</option>
+                      <option value="3">Vendor</option>
+                      <option value="4">User</option>
+                    </select>
+                    <div *ngIf="registerForm.controls['role'].invalid && registerForm.controls['role'].touched">
+                      <small *ngIf="registerForm.controls['role'].errors?.['required']" [ngStyle]="{ 'color': 'red' }">Role is required.</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" id="yourPassword" required>
+                    <div *ngIf="registerForm.controls['password'].invalid && registerForm.controls['password'].touched">
+                      <small *ngIf="registerForm.controls['password'].errors?.['required']" [ngStyle]="{ 'color': 'red' }">Password is required.</small>
+                      <small *ngIf="registerForm.controls['password'].errors?.['minlength']" [ngStyle]="{ 'color': 'red' }">Password must be at least 6 characters long.</small>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" name="terms" type="checkbox" formControlName="terms" id="acceptTerms" (change)="onTermsChanged($event)" required>
+                      <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                      <div class="invalid-feedback">You must agree before submitting.</div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary w-100" type="submit" [disabled]="!termsAccepted">Create Account</button>
+                  </div>
+                  <div class="col-12">
+                    <p class="small mb-0">Already have an account? <a routerLink="/login">Log in</a></p>
+                  </div>
+                </form>
+
+                <div *ngIf="errorMessage" class="modal">
+                  <div class="modal-content">
+                    <span class="close" (click)="errorMessage=''">&times;</span>
+                    <p>{{ errorMessage }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <app-inline-footer></app-inline-footer>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
