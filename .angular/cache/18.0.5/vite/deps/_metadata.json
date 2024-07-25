@@ -1,61 +1,61 @@
 {
-  "hash": "f3f0e235",
+  "hash": "03a69418",
   "configHash": "adf1fed0",
-  "lockfileHash": "9707722c",
-  "browserHash": "8dab773d",
+  "lockfileHash": "8ffa2c06",
+  "browserHash": "eeef5254",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "52f48b0f",
+      "fileHash": "3a592ba4",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "b8d216ac",
+      "fileHash": "ad492eb6",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "4294f1c9",
+      "fileHash": "1c53f436",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "b976f157",
+      "fileHash": "a326ae7d",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "be907ff1",
+      "fileHash": "9847bfd5",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "6ad4d77c",
+      "fileHash": "3f414547",
       "needsInterop": false
     },
     "datatables.net": {
       "src": "../../../../../node_modules/datatables.net/js/jquery.dataTables.mjs",
       "file": "datatables__net.js",
-      "fileHash": "3d1bc2e3",
+      "fileHash": "8ff1b8c1",
       "needsInterop": false
     },
     "jquery": {
       "src": "../../../../../node_modules/jquery/dist/jquery.js",
       "file": "jquery.js",
-      "fileHash": "b7827890",
+      "fileHash": "0e90014c",
       "needsInterop": true
     },
     "sweetalert2": {
       "src": "../../../../../node_modules/sweetalert2/dist/sweetalert2.all.js",
       "file": "sweetalert2.js",
-      "fileHash": "a0673399",
+      "fileHash": "64acd530",
       "needsInterop": true
     }
   },

@@ -17,84 +17,27 @@ export class GlobalServicesService {
   getMenuData(): Observable<any> {
     return this.http.get<any>(`${this.globalApiURL}meta/getmenulist`);
   }
-  getRoleName(roleId: number): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/role/${roleId}`);
-  }
   updateProfileInfo(profiledata:any): Observable<any> {
     return this.http.post<any>(`${this.globalApiURL}auth/update-profile`, profiledata);
   }
   updatePassInfo(passdata:any): Observable<any> {
     return this.http.post<any>(`${this.globalApiURL}auth/update-password`, passdata);
   }
-  getCategories(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/getcategories`);
+  getRoleName(roleId: number): Observable<any> {
+    return this.http.get<any>(`${this.globalApiURL}meta/role/${roleId}`);
+  } 
+
+  // manage api's
+  addCompanyData(payload: any) {
+    return this.http.post(`${this.globalApiURL}companies/add/info`, payload);
   }
-  addcategory(category: any) {
-    return this.http.post(`${this.globalApiURL}meta/category`, category);
+  getCompanyInfo(campany: any): Observable<any> {
+    return this.http.get<any>(`${this.globalApiURL}companies/info/${campany}`);
   }
-  getCategoryId(catId: number): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/getcategories/${catId}`);
+  updateCompanyData(payload: any) {
+    return this.http.put(`${this.globalApiURL}companies/update/info`, payload);
   }
-  updatecategory(catdata:any): Observable<any> {
-    return this.http.put<any>(`${this.globalApiURL}meta/updatecategory`, catdata);
-  }
-  getSubCategories(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/getsubcategories`);
-  }
-  addsubcategory(payload: any) {
-    return this.http.post(`${this.globalApiURL}meta/subcategory`, payload);
-  }
-  getSubCategoryId(subcatId: number): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/getsubcategories/${subcatId}`);
-  }
-  updatesubcategory(subcatdata:any): Observable<any> {
-    return this.http.put<any>(`${this.globalApiURL}meta/updatesubcategory`, subcatdata);
-  }
-  getbrands(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/getbrands`);
-  }
-  getbrandId(brandId: number): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/getbrands/${brandId}`);
-  }
-  addbrand(payload: any) {
-    return this.http.post(`${this.globalApiURL}meta/brands`, payload);
-  }
-  updatebrand(brand:any): Observable<any> {
-    return this.http.put<any>(`${this.globalApiURL}meta/updatebrands`, brand);
-  }
-  getvendors(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}vendor/info`);
-  }
-  getvendorId(vendorId: number): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}vendor/info/${vendorId}`);
-  }
-  getproducts(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}product/fetch`);
-  }
-  addproduct(payload: any) {
-    return this.http.post(`${this.globalApiURL}product/add`, payload);
-  }
-  updateProduct(product:any): Observable<any> {
-    return this.http.put<any>(`${this.globalApiURL}product/update`, product);
-  }
-  getProductId(productId: number): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}product/fetch/${productId}`);
-  }
-  getusers(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}auth`);
-  }
-  getroles(): Observable<any> {
-    return this.http.get<any>(`${this.globalApiURL}meta/allroles`);
-  }
-  addvendor(payload: any) {
-    return this.http.post(`${this.globalApiURL}vendor/add/info`, payload);
-  }
-  updateVendor(vendor:any): Observable<any> {
-    return this.http.put<any>(`${this.globalApiURL}vendor/update/info`, vendor);
-  }
-  addrole(payload: any) {
-    return this.http.post(`${this.globalApiURL}meta/role`, payload);
-  }
+  
 
 
 }

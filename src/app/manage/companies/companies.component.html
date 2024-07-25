@@ -1,0 +1,114 @@
+<div class="row layout-spacing">
+    <div class="col-lg-12">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-8 col-md-8 col-sm-8 col-8">
+                        <h4>Companies</h4>
+                    </div>
+                    <div class="col-xl-2 col-md-2 col-sm-2 col-2">
+                        <h4>
+                            <select class="form-control form-small">
+                                <option selected="selected">All</option>
+                                <option>Active</option>
+                                <option>In Active</option>
+                            </select>
+                        </h4>
+                    </div>
+                    <div class="col-xl-2 col-md-2 col-sm-2 col-2">
+                        <h4>
+                            <button type="button" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#exampleModal">
+                                Add Company
+                            </button>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <div class="table-responsive mb-4">
+                    <table id="style-3" class="table style-3 table-hover">
+                        <thead>
+                            <tr>
+                                <th class="checkbox-column text-center">#</th>
+                                <th>Company</th>
+                                <th>Company URL</th>
+                                <th>Post Panel URL</th>
+                                <th>Report</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Company</h5>
+                        <button class="btn" data-dismiss="modal" (click)="resetForm()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                                <path
+                                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="form">
+                            <div class="form-group mb-4">
+                                <label for="inputAddress">Company name</label>
+                                <input type="text" formControlName="company_name" class="form-control" id="company_name" placeholder="Enter Company Name">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="inputAddress2">Company url</label>
+                                <input type="text" formControlName="company_url" class="form-control" id="company_url" placeholder="Enter Company Url">
+                            </div>
+                            <div class="form-row mb-4">
+                                <div class="form-group col-md-10">
+                                    <label for="post_panel_url">Post panel url</label>
+                                    <div formArrayName="post_panel_url">
+                                        <div *ngFor="let url of postPanelUrls.controls; let i = index">
+                                            <input type="text" [formControlName]="i" class="form-control"
+                                                placeholder="Post panel url {{i+1}}">
+                                            <a (click)="removeInput(i)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="feather feather-trash p-1 br-6 mb-1">
+                                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                                    <path
+                                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                                    </path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary mb-3" (click)="addInput()">+ Add
+                                        Input</button>
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="inputAddress2">CMS url</label>
+                                <input type="text" formControlName="cms_url" class="form-control" id="cms_url"
+                                    placeholder="Enter CMS url">
+                            </div>
+                            <input type="hidden" formControlName="cms_url" class="form-control" id="cms_url"
+                                    placeholder="Enter CMS url">
+                            <div class="form-group mb-4">
+                                <label for="inputAddress2">Description</label>
+                                <textarea formControlName="description" class="form-control"
+                                    aria-label="With textarea"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" (click)="resetForm()"><i class="flaticon-cancel-12"></i> Discard</button>
+                        <button type="button" class="btn btn-primary" (click)="submitForm()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "types": ["jquery", "datatables.net", "node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

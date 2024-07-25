@@ -43,7 +43,12 @@
               "src/assets/css/dashboard/dash_2.css",
               "src/assets/css/authentication/form-1.css",
               "src/assets/css/forms/theme-checkbox-radio.css",
-              "src/assets/css/forms/switches.css"
+              "src/assets/css/forms/switches.css",
+              "src/plugins/table/datatable/datatables.css",
+              "src/assets/css/forms/theme-checkbox-radio.css",
+              "src/plugins/table/datatable/dt-global_style.css",
+              "src/plugins/table/datatable/custom_dt_custom.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -54,7 +59,9 @@
               "src/assets/js/custom.js",
               "node_modules/apexcharts/dist/apexcharts.min.js",
               "src/assets/js/dashboard/dash_2.js",
-              "src/assets/js/authentication/form-1.js"
+              "src/assets/js/authentication/form-1.js",
+              "src/plugins/table/datatable/datatables.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js"
             ]
           },
           "configurations": {

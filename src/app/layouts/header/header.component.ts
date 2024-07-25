@@ -15,16 +15,13 @@ export class HeaderComponent {
   roleSubName: string | undefined;
   
   constructor(private globalServices: GlobalServicesService, private authService: AuthService, private router: Router, private toastService: ToastService) {}
+  headerName: string = '';
 
   ngOnInit(): void {
-    // if (localStorage.getItem('token')) {
-    //   this.getUserDetails()
-    //   this.fetchRoleName(localStorage.getItem('roleId'));
-    // }else{
-    //   localStorage.removeItem('token');
-    //   alert('Token Expired')
-    //   this.router.navigate(['/login']);
-    // }
+    if (localStorage.getItem('fullname')) {
+      const fullname = localStorage.getItem('fullname');
+      this.headerName = fullname !== null ? fullname : '';
+    }
   }
   getUserDetails(){
     this.globalServices.getData().subscribe(
